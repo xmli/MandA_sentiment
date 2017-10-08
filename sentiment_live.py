@@ -11,6 +11,8 @@ consumer_secret = '1H0btag79ui1pJTkhDIzldWNhVaQkjWRPVpsH0pTt6oUPA2ftR'
 access_token = '575946480-FyvKX1pzDjXDhYximlCcHFddYAlVs5Jrw8hzfAqv'
 access_token_secret = '7ixwwMFMminLsYZmT1iaZD7zn17a7BSZrAREwOsr9Y4xE'
 
+query = str(input("What do you want to query about? \n>"))
+
 class listener(StreamListener):
 
     def on_data(self, data):
@@ -40,5 +42,6 @@ class listener(StreamListener):
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
+
 twitterStream = Stream(auth, listener())
-twitterStream.filter(track=["depression"])
+twitterStream.filter(track=[query])
