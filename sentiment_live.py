@@ -11,6 +11,7 @@ consumer_secret = '1H0btag79ui1pJTkhDIzldWNhVaQkjWRPVpsH0pTt6oUPA2ftR'
 access_token = '575946480-FyvKX1pzDjXDhYximlCcHFddYAlVs5Jrw8hzfAqv'
 access_token_secret = '7ixwwMFMminLsYZmT1iaZD7zn17a7BSZrAREwOsr9Y4xE'
 
+print("Authenticating Twitter API...")
 query = str(input("What do you want to query about? \n>"))
 print("Tracking " + query + "...")
 
