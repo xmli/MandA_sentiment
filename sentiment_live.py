@@ -12,6 +12,7 @@ access_token = '575946480-FyvKX1pzDjXDhYximlCcHFddYAlVs5Jrw8hzfAqv'
 access_token_secret = '7ixwwMFMminLsYZmT1iaZD7zn17a7BSZrAREwOsr9Y4xE'
 
 query = str(input("What do you want to query about? \n>"))
+print("Tracking " + query + "...")
 
 class listener(StreamListener):
 
@@ -23,16 +24,15 @@ class listener(StreamListener):
         polarity = analysis.sentiment[0]
         subjectivity = analysis.sentiment[1]
 
-        print(tweet, polarity, subjectivity)
+        # print(tweet, polarity, subjectivity)
 
-        if subjectivity * 100 >= 75:
-            output = open('twitter_output.txt', 'a')
-            if polarity > 0:
-                output.write('pos')
-            else:
-                output.write('neg')
-            output.write('\n')
-            output.close()
+        output = open('twitter_output.txt', 'a')
+        if polarity > 0.2:
+            output.write('pos')
+        elif polarity < -0.2:
+            output.write('neg')
+        output.write('\n')
+        output.close()
 
         return(True)
 
