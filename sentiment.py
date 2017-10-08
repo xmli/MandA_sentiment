@@ -11,7 +11,7 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-public_tweets = api.search('Trump')
+public_tweets = api.search('$AAPL')
 
 for tweet in public_tweets:
     print(tweet.text)
