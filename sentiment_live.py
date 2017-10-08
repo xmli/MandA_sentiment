@@ -25,11 +25,12 @@ class listener(StreamListener):
         subjectivity = analysis.sentiment[1]
 
         # print(tweet, polarity, subjectivity)
+        print(tweet)
 
         output = open('twitter_output.txt', 'a')
-        if polarity > 0.2:
+        if polarity > 0.05:
             output.write('pos')
-        elif polarity < -0.2:
+        elif polarity < -0.05:
             output.write('neg')
         output.write('\n')
         output.close()
